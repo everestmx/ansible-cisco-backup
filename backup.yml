@@ -1,0 +1,22 @@
+---
+- name: Save Configurations (IOS)
+  hosts: ios
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: Backup current config
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{ now(utc=true,fmt='%Y-%m-%d') }}_{{ inventory_hostname }}.txt"
+
+- name: Save Configurations (NXOS)
+  hosts: nxos
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: Backup current config
+      nxos_config:
+        backup: yes
+        backup_options:
+          filename: "{{ now(utc=true,fmt='%Y-%m-%d') }})_{{ inventory_hostname }}.txt"
