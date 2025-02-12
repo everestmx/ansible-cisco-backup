@@ -19,4 +19,4 @@
       nxos_config:
         backup: yes
         backup_options:
-          filename: "{{ now(utc=true,fmt='%Y-%m-%d') }})_{{ inventory_hostname }}.txt"
+          filename: "{{ now(utc=true,fmt='%Y-%m-%d') }}_{{ inventory_hostname }}.txt"
